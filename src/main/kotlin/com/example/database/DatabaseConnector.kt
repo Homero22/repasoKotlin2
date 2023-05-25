@@ -3,11 +3,8 @@ package com.example.database
 import com.example.config.DatabaseConfig
 import com.example.config.EnvConfig
 import org.jetbrains.exposed.sql.Database
-
-
 object DatabaseConnector : DatabaseConfig {
     private val envConfig = EnvConfig
-
     override val url: String = envConfig.dbUrl
     override val driver: String = envConfig.dbDriver
     override val user: String = envConfig.dbUsername
@@ -21,9 +18,4 @@ object DatabaseConnector : DatabaseConfig {
             println(e.message)
         }
     }
-    private fun disconnect() {
-        println("Desconectando...")
-
-    }
-
 }
